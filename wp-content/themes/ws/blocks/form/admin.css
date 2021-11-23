@@ -1,0 +1,15 @@
+@import '../../src/css/admin/modules/variables.css';
+
+.wp-block-ws-form {
+  .form-html {
+    pointer-events: none;
+  }
+  .form-warning {
+    border: 1px solid $border-color;
+    padding: 5px;
+  }
+  .thank-you-message {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+  }
+}

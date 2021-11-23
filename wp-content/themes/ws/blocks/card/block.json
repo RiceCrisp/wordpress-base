@@ -1,0 +1,48 @@
+{
+  "apiVersion": 2,
+  "name": "ws/card",
+  "title": "Card",
+  "description": "Wrap content in card styling.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true,
+    "backgroundMedia": true,
+    "color": {
+      "gradients": true
+    }
+  },
+  "attributes": {
+    "clickable": {
+      "type": "boolean"
+    },
+    "padding": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "number"
+    },
+    "imageX": {
+      "type": "string",
+      "default": "0.5"
+    },
+    "imageY": {
+      "type": "string",
+      "default": "0.5"
+    },
+    "imagePosition": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "This is a card."
+        }
+      }
+    ]
+  },
+  "style": "front-css-card"
+}

@@ -1,0 +1,40 @@
+{
+  "apiVersion": 2,
+  "name": "ws/section",
+  "title": "Section",
+  "description": "Generic wrapper for transforming any combination of blocks into a section with background and padding rules.",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true,
+    "backgroundMedia": true,
+    "color": {
+      "gradients": true
+    }
+  },
+  "attributes": {
+    "width": {
+      "type": "string",
+      "default": "default"
+    },
+    "fullScreen": {
+      "type": "boolean"
+    },
+    "order": {
+      "type": "number"
+    },
+    "autoPaddingTop": {
+      "type": "string"
+    },
+    "autoPaddingBottom": {
+      "type": "string"
+    },
+    "manualPaddingTop": {
+      "type": "string"
+    },
+    "manualPaddingBottom": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-section"
+}

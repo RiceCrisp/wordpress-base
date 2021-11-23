@@ -1,0 +1,25 @@
+{
+  "apiVersion": 2,
+  "name": "ws/icon-list-item",
+  "title": "Icon List Item",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "customClassName": false,
+    "html": false
+  },
+  "parent": [
+    "ws/icon-list"
+  ],
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

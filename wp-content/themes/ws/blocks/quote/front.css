@@ -1,0 +1,16 @@
+@import '../../src/css/variables.css';
+
+.wp-block-quote {
+  padding: 0 0 0 20px;
+  border-left: 4px solid $dawn;
+  &:not(.is-large):not(.is-style-large) {
+    border-left: 4px solid $dawn;
+  }
+  p {
+    font-style: italic;
+  }
+  cite {
+    @include small;
+    color: inherit;
+  }
+}

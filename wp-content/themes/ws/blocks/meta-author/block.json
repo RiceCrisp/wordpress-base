@@ -1,0 +1,25 @@
+{
+  "apiVersion": 2,
+  "name": "ws/meta-author",
+  "title": "Author Meta",
+  "description": "Author and profile image override. Only the data is used, so this block's position does not matter.",
+  "icon": "edit",
+  "category": "ws-meta",
+  "textdomain": "ws",
+  "supports": {
+    "multiple": false,
+    "customClassName": false
+  },
+  "attributes": {
+    "authorName": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_author_name"
+    },
+    "authorImage": {
+      "type": "number",
+      "source": "meta",
+      "meta": "_author_image"
+    }
+  }
+}

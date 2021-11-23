@@ -1,0 +1,19 @@
+{
+  "apiVersion": 2,
+  "name": "ws/tabbed-panel",
+  "title": "Tabbed Panel",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "customClassName": false,
+    "html": false
+  },
+  "parent": [
+    "ws/tabbed-panels"
+  ],
+  "attributes": {
+    "heading": {
+      "type": "string"
+    }
+  }
+}

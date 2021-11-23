@@ -1,0 +1,17 @@
+{
+  "apiVersion": 2,
+  "name": "ws/split",
+  "title": "Split",
+  "description": "Two columns of content with optional variations.",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "attributes": {
+    "verticalAlignment": {
+      "type": "string"
+    },
+    "mobileReverse": {
+      "type": "boolean"
+    }
+  },
+  "style": "front-css-split"
+}

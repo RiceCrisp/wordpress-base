@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "ws/meta-person",
+  "title": "Person Meta",
+  "description": "Person template data. Only the data is used, so this block's position does not matter.",
+  "icon": "groups",
+  "category": "ws-meta",
+  "textdomain": "ws",
+  "supports": {
+    "multiple": false,
+    "customClassName": false
+  },
+  "attributes": {
+    "position": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_person_position"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/* This stylesheet defines styles for search, 404, and any hard-coded page templates. */
+[data-template='404'], [data-template=offline] {
+  svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: $default-margin;
+  }
+}
+
+body.search {
+  .archive-results {
+    margin-top: calc($section-padding / 2);
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "apiVersion": 2,
+  "name": "ws/layout-column",
+  "title": "Layout Column",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "customClassName": false,
+    "html": false
+  },
+  "parent": [
+    "ws/layout-row"
+  ],
+  "attributes": {
+    "width": {
+      "type": "number"
+    },
+    "verticalAlignment": {
+      "type": "string"
+    }
+  }
+}

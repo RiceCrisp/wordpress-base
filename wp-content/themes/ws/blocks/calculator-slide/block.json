@@ -1,0 +1,22 @@
+{
+  "apiVersion": 2,
+  "name": "ws/calculator-slide",
+  "title": "Calculator Slide",
+  "category": "ws-calculator",
+  "textdomain": "ws",
+  "supports": {
+    "customClassName": false,
+    "html": false
+  },
+  "parent": [
+    "ws/calculator"
+  ],
+  "attributes": {
+    "position": {
+      "type": "number"
+    },
+    "heading": {
+      "type": "string"
+    }
+  }
+}

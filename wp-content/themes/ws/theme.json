@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Night",
+          "slug": "night",
+          "color": "#041c2c"
+        },
+        {
+          "name": "Dusk",
+          "slug": "dusk",
+          "color": "#102952"
+        },
+        {
+          "name": "Dawn",
+          "slug": "dawn",
+          "color": "#e84c2b"
+        },
+        {
+          "name": "Sand",
+          "slug": "sand",
+          "color": "#ece3e0"
+        },
+        {
+          "name": "Salt",
+          "slug": "salt",
+          "color": "#fff4f0"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
+        }
+      ],
+      "gradients": [
+        {
+          "name": "Night->Dusk",
+          "slug": "night-dusk",
+          "gradient": "linear-gradient(90deg, rgba(4, 28, 44, 1) 0%, rgba(16, 41, 82, 1) 100%)"
+        },
+        {
+          "name": "Dawn→Light Orange",
+          "slug": "dawn-orange",
+          "gradient": "linear-gradient(90deg, rgba(232, 76, 43, 1) 0%, rgba(234, 110, 42, 1) 100%)"
+        },
+        {
+          "name": "Sand->White",
+          "slug": "sand-white",
+          "gradient": "linear-gradient(90deg, rgba(236, 227, 224, 1) 0%, rgba(255, 255, 255, 1) 100%)"
+        },
+        {
+          "name": "Salt->White",
+          "slug": "salt-white",
+          "gradient": "linear-gradient(90deg, rgba(255, 244, 240, 1) 0%, rgba(255, 255, 255, 1) 100%)"
+        }
+      ]
+    },
+    "spacing": {
+      "customMargin": true
+    },
+    "typography": {
+      "customFontSize": false,
+      "fontSizes": [
+        {
+          "name": "H1",
+          "slug": "h1",
+          "size": "60px"
+        },
+        {
+          "name": "H2",
+          "slug": "h2",
+          "size": "40px"
+        },
+        {
+          "name": "H3",
+          "slug": "h3",
+          "size": "30px"
+        },
+        {
+          "name": "H4",
+          "slug": "h4",
+          "size": "25px"
+        },
+        {
+          "name": "Paragraph",
+          "slug": "paragraph",
+          "size": "16px"
+        }
+      ]
+    },
+    "blocks": {
+      "core/button": {
+        "border": {
+          "customRadius": false
+        }
+      },
+      "core/list": {
+        "supports": {
+          "columns": true
+        }
+      }
+    }
+  },
+  "styles": {
+    "elements": {
+      "h2": {
+        "color": {
+          "text": "var(--wp--preset--color--dawn)"
+        }
+      }
+    }
+  },
+  "unregisterBlocks": [
+    "core/columns",
+    "core/media-text",
+    "core/spacer"
+  ],
+  "fonts": [
+    {
+      "name": "Eina",
+      "src": "/wp-content/themes/ws/assets/eina_light.ttf",
+      "weight": 300
+    },
+    {
+      "name": "Eina",
+      "src": "/wp-content/themes/ws/assets/eina_regular.ttf",
+      "weight": 400
+    },
+    {
+      "name": "Eina",
+      "src": "/wp-content/themes/ws/assets/eina_semibold.ttf",
+      "weight": 700
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+/* This stylesheet is for css styles that don't fit anywhere else. It should RARELY be used. */
+
+/* Uncomment to visually check for images missing alt text. */
+/* body.logged-in {
+  img:not([alt]):not(.ignore-error) {
+    border: 5px solid #f00 !important;
+  }
+  img[alt='']:not(.ignore-error) {
+    border: 5px solid #ff0 !important;
+  }
+  a[href="#"] {
+    border: 5px solid #ff0 !important;
+    &:hover:after {
+      content: 'hash link only';
+      position: absolute;
+      color: #ff0;
+      background-color: rgba(#000, 0.6);
+    }
+  }
+  a[target='_blank']:not([rel]):not(.ignore-error) {
+    border: 5px solid #f00 !important;
+    &:hover:after {
+      content: 'missing "rel" attribute';
+      position: absolute;
+      color: #f00;
+      background-color: rgba(#000, 0.6);
+    }
+  }
+} */

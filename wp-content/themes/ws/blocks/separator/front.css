@@ -1,0 +1,45 @@
+@import '../../src/css/variables.css';
+
+.wp-block-separator {
+  @include hr;
+  &.has-text-align-left {
+    width: 100px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  &.has-text-align-center {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.has-text-align-right {
+    width: 100px;
+    margin-right: 0;
+    margin-left: auto;
+  }
+  &.extra-spacing {
+    margin-bottom: calc($default-margin * 2);
+    padding: $default-margin 0 0;
+  }
+  &:last-child {
+    margin-bottom: $default-margin;
+  }
+  .wp-block-group.condense > .wp-block-group__inner-container > & {
+    padding-top: 0;
+  }
+  section + & {
+    margin: 0 auto;
+    padding-right: $container-padding;
+    padding-left: $container-padding;
+    @each $breakpoint $breakname in $breaks {
+      @media (--$(breakname)-up) {
+        @if $breakname == xs {
+          width: calc(100% - $container-padding * 2);
+        }
+        @else {
+          width: calc($breakpoint - $container-padding * 2);
+        }
+      }
+    }
+  }
+}

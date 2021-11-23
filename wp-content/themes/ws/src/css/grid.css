@@ -1,0 +1,105 @@
+/* This stylesheet is for defining the grid system used by the site. It should remain mostly static. */
+
+.container, .container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+}
+
+.row {
+  @include row;
+}
+
+ul.row {
+  list-style: none;
+  margin-bottom: 0;
+  li {
+    margin: 0;
+  }
+}
+
+.col {
+  @include col;
+}
+
+@each $breakpoint $breakname in $breaks {
+  @media (--$(breakname)-up) {
+    .container {
+      @if $breakname == xs {
+        width: 100%;
+      }
+      @else {
+        width: $(breakpoint);
+      }
+    }
+    @for $size from 1 to 12 {
+      .col-$(breakname)-$(size) {
+        @include col;
+        @include col-size($size);
+      }
+      .col-$(breakname)-offset-$size {
+        @include col-offset($size);
+      }
+      .col-$(breakname)-offset-0 {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@each $breakpoint $breakname in $breaksalt {
+  @media (--$(breakname)-down) {
+    .hide-$(breakname) {
+      display: none;
+    }
+  }
+}
+
+.align-items-start, .align-items-top {
+  align-items: flex-start;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-end, .align-items-bottom {
+  align-items: flex-end;
+}
+
+.align-self-start, .align-self-top {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end, .align-self-bottom {
+  align-self: flex-end;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.col-reverse {
+  flex-direction: column-reverse;
+}

@@ -1,0 +1,23 @@
+name: Deploy to Staging
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install
+      - run: npm run build
+      - uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.PRIVATE_KEY }}
+        with:
+          flags: "-rv --delete"
+          options: "--exclude library/js/jobFiltering/node_modules"
+          ssh_options: ""
+          src: "./wp-content/themes/bones/"
+          dest: "${{ secrets.STAG_SSH_USER }}@${{ secrets.STAG_SSH_HOST }}:/sites/${{ secrets.STAG_SSH_USER }}/wp-content/themes/_ws/"

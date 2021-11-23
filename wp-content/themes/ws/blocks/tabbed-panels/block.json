@@ -1,0 +1,18 @@
+{
+  "apiVersion": 2,
+  "name": "ws/tabbed-panels",
+  "title": "Tabbed Panels",
+  "description": "Tabbable panels of content.",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "orientation": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-tabbed-panels",
+  "script": "front-js-tabbed-panels"
+}

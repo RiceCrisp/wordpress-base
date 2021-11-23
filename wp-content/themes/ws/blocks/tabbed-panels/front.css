@@ -1,0 +1,140 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-tabbed-panels {
+  &[class] {
+    @include row;
+  }
+  .tabs {
+    display: flex;
+  }
+  .tabs-mobile {
+    display: none;
+  }
+  .tab {
+    @include button;
+    border-radius: $border-radius;
+    padding: 15px 20px;
+    cursor: pointer;
+    color: rgba(#000, 0.25);
+    background: none;
+    font-weight: $bold;
+    outline: none;
+    transition: 0.2s;
+    &.current {
+      background: $dawn;
+      color: #fff;
+      svg {
+        color: #fff;
+      }
+    }
+  }
+  &.horizontal {
+    .tabs {
+      width: 100%;
+      display: flex;
+      margin: 0 0 $default-margin;
+    }
+    .tab {
+      flex: 1 1 auto;
+    }
+    .panels {
+      display: flex;
+      margin-bottom: -$default-margin;
+    }
+    .panel {
+      flex: 1 1 100%;
+      visibility: hidden;
+      height: 1px;
+      opacity: 0;
+      transition: height 0s 0.2s, visibility 0s 0.2s, opacity 0.2s;
+      + .panel {
+        margin-left: -100%;
+      }
+      &.current {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+        transition: height 0s, visibility 0s, opacity 0.2s;
+      }
+    }
+  }
+  &.vertical {
+    .tabs {
+      flex-direction: column;
+      justify-content: center;
+    }
+    .tab {
+      display: flex;
+      align-items: center;
+      flex: none;
+      text-align: left;
+    }
+    .panels {
+      display: flex;
+      align-items: center;
+      margin-bottom: -$default-margin;
+    }
+    .panel {
+      flex: none;
+      width: 100%;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 0.2s, opacity 0.2s;
+      + .panel {
+        margin-left: -100%;
+      }
+      &.current {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s, opacity 0.2s;
+      }
+    }
+    @media (--md-up) {
+      .tabs {
+        @include col-size(5);
+      }
+      .panels {
+        @include col-size(7);
+      }
+    }
+    @media (--lg-up) {
+      .tabs {
+        @include col-size(4);
+      }
+      .panels {
+        @include col-size(8);
+      }
+    }
+    @media (--xl-up) {
+      .tabs {
+        @include col-size(4);
+      }
+      .panels {
+        @include col-size(7);
+        @include col-offset(1);
+      }
+    }
+  }
+  @media (--sm-down) {
+    &[class] {
+      .tabs {
+        display: none;
+      }
+      .tabs-mobile {
+        display: block;
+      }
+      .panel {
+        visibility: hidden;
+        height: 1px;
+        opacity: 0;
+        transition: height 0s 0.2s, visibility 0s 0.2s, opacity 0.2s;
+        &.current {
+          height: auto;
+          visibility: visible;
+          opacity: 1;
+          transition: height 0s, visibility 0s, opacity 0.2s;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-empty-line-before": null,
+    "at-rule-no-unknown": null,
+    "comment-empty-line-before": null,
+    "declaration-empty-line-before": "never",
+    "no-descending-specificity": null,
+    "rule-empty-line-before": ["always", {
+      "except": ["inside-block"],
+      "ignore": ["after-comment"]
+    }],
+    "selector-list-comma-newline-after": null,
+    "scss/at-rule-no-unknown": true
+  }
+}

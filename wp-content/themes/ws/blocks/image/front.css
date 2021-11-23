@@ -1,0 +1,40 @@
+@import '../../src/css/variables.css';
+
+.wp-block-image {
+  margin-bottom: $default-margin;
+  &.is-style-rounded {
+    img {
+      border-radius: $border-radius;
+    }
+  }
+  &.is-style-circular {
+    img {
+      border-radius: 999px;
+    }
+  }
+  &.has-drop-shadow {
+    img {
+      filter: drop-shadow($shadow);
+    }
+  }
+  figure&, figure {
+    line-height: 0;
+  }
+  div& {
+    figure {
+      margin-bottom: 0;
+    }
+  }
+  figcaption {
+    margin-top: 5px;
+    margin-bottom: 0;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  @media (--xs-down) {
+    .alignleft, .alignright {
+      float: none;
+      margin: 0 0 $default-margin;
+    }
+  }
+}

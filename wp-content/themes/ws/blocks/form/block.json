@@ -1,0 +1,18 @@
+{
+  "apiVersion": 2,
+  "name": "ws/form",
+  "title": "Form",
+  "description": "Form with thank you message.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "form": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-form",
+  "script": "front-js-form"
+}

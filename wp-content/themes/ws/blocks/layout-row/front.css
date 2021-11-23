@@ -1,0 +1,62 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-layout-row {
+  margin: 0;
+  &[class] {
+    @include row;
+  }
+}
+
+.wp-block-ws-layout-column {
+  @include col;
+  @include col-size(12);
+  &[class] {
+    margin: 0 0 calc($grid-padding * 2 - $default-margin);
+  }
+  > *:first-child {
+    margin-top: 0;
+  }
+  > .card {
+    margin-bottom: $default-margin;
+    height: calc(100% - $default-margin);
+  }
+  &.col-2 {
+    @media (--lg-up) {
+      @include col-size(6);
+    }
+  }
+  &.col-3 {
+    @media (--md-up) {
+      @include col-size(6);
+    }
+    @media (--lg-up) {
+      @include col-size(4);
+    }
+  }
+  &.col-4 {
+    @media (--md-up) {
+      @include col-size(6);
+    }
+    @media (--xl-up) {
+      @include col-size(3);
+    }
+  }
+  &.col-5 {
+    @media (--sm-up) {
+      @include col-size(6);
+    }
+    @media (--lg-up) {
+      flex-basis: 20%;
+      max-width: 20%;
+    }
+  }
+  &.col-6 {
+    @include col-size(6);
+    @media (--sm-up) {
+      @include col-size(4);
+    }
+    @media (--lg-up) {
+      @include col-size(2);
+    }
+  }
+}

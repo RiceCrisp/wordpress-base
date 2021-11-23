@@ -1,0 +1,18 @@
+@import '../../src/css/admin/modules/variables.css';
+
+.wp-block-ws-meta-author {
+  .author-pic {
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+    flex: none;
+  }
+  .author-name {
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+    flex: 1 1 auto;
+  }
+  img {
+    width: 96px;
+    height: 96px;
+  }
+}

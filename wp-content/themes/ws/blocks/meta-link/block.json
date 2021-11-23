@@ -1,0 +1,26 @@
+{
+  "apiVersion": 2,
+  "name": "ws/meta-link",
+  "title": "Page Link Meta",
+  "description": "Modify page behavior. Only the data is used, so this block's position does not matter.",
+  "icon": "external",
+  "category": "ws-meta",
+  "textdomain": "ws",
+  "supports": {
+    "multiple": false,
+    "customClassName": false
+  },
+  "attributes": {
+    "linkUrl": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_link_url"
+    },
+    "linkType": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_link_type",
+      "default": "new-tab"
+    }
+  }
+}

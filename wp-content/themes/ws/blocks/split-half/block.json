@@ -1,0 +1,31 @@
+{
+  "apiVersion": 2,
+  "name": "ws/split-half",
+  "title": "Split Half",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "customClassName": false,
+    "html": false
+  },
+  "parent": [
+    "ws/split"
+  ],
+  "attributes": {
+    "width": {
+      "type": "number"
+    },
+    "sticky": {
+      "type": "boolean"
+    },
+    "extendTop": {
+      "type": "boolean"
+    },
+    "extendBottom": {
+      "type": "boolean"
+    },
+    "verticalAlignment": {
+      "type": "string"
+    }
+  }
+}

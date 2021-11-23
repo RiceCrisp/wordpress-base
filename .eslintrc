@@ -1,0 +1,52 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "brace-style": ["error", "stroustrup"],
+    "comma-dangle": ["warn", "never"],
+    "func-call-spacing": ["warn", "never"],
+    "import/first": "warn",
+    "multiline-ternary": "off",
+    "no-console": "off",
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "no-new": "warn",
+    "no-unused-vars": ["warn", { "vars": "all", "args": "none", "ignoreRestSiblings": true }],
+    "no-use-before-define": "off",
+    "object-curly-newline": ["warn", {
+      "ObjectExpression": { "multiline": true, "minProperties": 4, "consistent": true },
+      "ObjectPattern": { "multiline": true, "minProperties": 4, "consistent": true },
+      "ImportDeclaration": { "multiline": true, "minProperties": 4, "consistent": true },
+      "ExportDeclaration": { "multiline": true, "minProperties": 4, "consistent": true }
+    }],
+    "padded-blocks": ["error", { "blocks": "never", "switches": "never", "classes": "always" }],
+    "space-before-function-paren": ["error", "never"],
+    "react/display-name": "off",
+    "@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+}

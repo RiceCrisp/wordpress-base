@@ -1,0 +1,5 @@
+@import '../../src/css/variables.css';
+
+.wp-block-cover {
+  margin-bottom: 0;
+}

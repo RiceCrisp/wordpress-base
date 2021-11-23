@@ -1,0 +1,36 @@
+{
+  "apiVersion": 2,
+  "name": "ws/archive",
+  "title": "Archive",
+  "description": "List all posts of a chosen type with optional filters. Display for each post type is determined by the theme.",
+  "category": "ws-dynamic",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true,
+    "multiple": false
+  },
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "postTypes": {
+      "type": "array",
+      "default": []
+    },
+    "loadMore": {
+      "type": "boolean"
+    },
+    "allPosts": {
+      "type": "boolean"
+    },
+    "numPosts": {
+      "type": "string"
+    },
+    "filters": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "style": "front-css-archive",
+  "script": "front-js-archive"
+}

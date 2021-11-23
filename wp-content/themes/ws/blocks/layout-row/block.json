@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "ws/layout-row",
+  "title": "Layout Row",
+  "description": "Define columns and add content.",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "sideScroll": {
+      "type": "boolean"
+    },
+    "verticalAlignment": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-layout-row"
+}

@@ -1,0 +1,6 @@
+export { init as analytics } from './analytics'
+export { init as author } from './author'
+export { init as bulkEdit } from './bulk-edit'
+export { init as menu } from './menu'
+export { init as siteOptions } from './site-options'
+export { init as svg } from './svg'

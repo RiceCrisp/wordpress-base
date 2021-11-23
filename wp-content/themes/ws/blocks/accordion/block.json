@@ -1,0 +1,23 @@
+{
+  "apiVersion": 2,
+  "name": "ws/accordion",
+  "title": "Accordion",
+  "description": "Collapsible content.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "heading": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "attributes": {
+      "heading": "This is an accordion"
+    }
+  },
+  "style": "front-css-accordion",
+  "script": "front-js-accordion"
+}

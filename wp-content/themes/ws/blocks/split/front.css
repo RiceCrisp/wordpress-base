@@ -1,0 +1,89 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-split {
+  margin: 0;
+  &[class] {
+    @include row;
+    justify-content: space-between;
+  }
+  &.row-reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.wp-block-ws-split-half {
+  @include col;
+  @include col-size(12);
+  position: relative;
+  &[class] {
+    margin: 0;
+    @media (--lg-up) {
+      @include col-size(6);
+    }
+  }
+  &.col-4 {
+    @media (--lg-up) {
+      @include col-size(5);
+    }
+    @media (--xl-up) {
+      @include col-size(4);
+    }
+  }
+  &.col-5 {
+    @media (--xl-up) {
+      @include col-size(5);
+    }
+  }
+  &.col-7 {
+    @media (--xl-up) {
+      @include col-size(7);
+    }
+  }
+  &.col-8 {
+    @media (--lg-up) {
+      @include col-size(7);
+    }
+    @media (--xl-up) {
+      @include col-size(8);
+    }
+  }
+  > .split-half-inner > *:first-child {
+    margin-top: 0;
+  }
+  &.sticky {
+    > .split-half-inner {
+      position: sticky;
+      margin: 0 0 $default-margin;
+      @include admin-sticky-fix(100px);
+    }
+  }
+  &.extend-top {
+    margin-top: calc(-1.5 * $section-padding);
+    @media (--md-down) {
+      &:last-child {
+        margin-top: 0;
+      }
+    }
+    > * {
+      margin: 0;
+    }
+  }
+  &.extend-bottom {
+    margin-bottom: calc(-1.5 * $section-padding);
+    @media (--md-down) {
+      &:first-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  @each $padding in $padding-options {
+    @if $padding >= 0 {
+      .padding-top-$(padding) &.extend-top {
+        margin-top: calc((-$section-padding * ($padding / 100)) - ($section-padding / 2));
+      }
+      .padding-bottom-$(padding) &.extend-bottom {
+        margin-bottom: calc((-$section-padding * ($padding / 100)) - ($section-padding / 2) + $default-margin);
+      }
+    }
+  }
+}

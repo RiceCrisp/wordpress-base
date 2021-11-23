@@ -1,0 +1,29 @@
+{
+  "apiVersion": 2,
+  "name": "ws/testimonial",
+  "title": "Testimonial",
+  "description": "Quote with optional citation and image fields.",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "image": {
+      "type": "number"
+    },
+    "quote": {
+      "type": "string"
+    },
+    "citation": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "attributes": {
+      "quote": "This is a testimonial.",
+      "citation": "Citation"
+    }
+  },
+  "style": "front-css-testimonial"
+}

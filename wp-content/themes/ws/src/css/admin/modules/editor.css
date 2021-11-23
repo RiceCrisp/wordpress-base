@@ -1,0 +1,227 @@
+/*
+* General
+*/
+.editor-styles-wrapper {
+  position: relative;
+  z-index: 0;
+  background: $body-color;
+  padding-left: $grid-padding;
+  padding-right: $grid-padding;
+  :root & {
+    @include text;
+  }
+  h1, .has-h-1-font-size {
+    @include h(1);
+  }
+  h2, .has-h-2-font-size {
+    @include h(2);
+  }
+  h3, .has-h-3-font-size {
+    @include h(3);
+  }
+  h4, .has-h-4-font-size {
+    @include h(4);
+  }
+  h5 {
+    @include h(5);
+  }
+  h6 {
+    @include h(6);
+  }
+  .has-paragraph-font-size {
+    @include text;
+  }
+  .has-text-color {
+    h1, h2, h3, h4, h5, h6, p {
+      color: inherit;
+    }
+  }
+  p, ul {
+    margin-top: 0;
+    margin-bottom: $default-margin;
+  }
+  input[type=text], input[type=email], input[type=tel], input[type=search] {
+    &:not(.components-text-control__input) {
+      @include input;
+    }
+  }
+  textarea {
+    &:not(.block-editor-plain-text):not(.block-editor-default-block-appender__content):not(.components-textarea-control__input):not(.editor-post-title__input) {
+      @include input;
+    }
+  }
+  select {
+    &:not(.components-select-control__input) {
+      @include select;
+    }
+  }
+  .object-fit-container {
+    position: relative;
+    > img {
+      object-fit: cover;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .extend-right {
+    margin-right: -$container-padding;
+    img {
+      margin-right: 0;
+      width: calc(100% + $container-padding);
+    }
+  }
+  .extend-left {
+    margin-left: -$container-padding;
+    img {
+      margin-left: 0;
+      width: calc(100% + $container-padding);
+    }
+  }
+}
+
+.square {
+  @include ratio(100%);
+}
+
+[disabled], .disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@each $color $slug in $colors {
+  .has-$(slug)-color {
+    color: $color;
+    .wp-block-button__inline-link {
+      color: $color;
+    }
+  }
+}
+
+@each $color $slug in $colors {
+  .has-$(slug)-background-color {
+    background-color: $color;
+  }
+}
+
+@each $gradient $slug in $gradients {
+  :root {
+    .has-$(slug)-gradient-background {
+      background-image: $gradient;
+      > .ws-block-container {
+        background-image: $gradient;
+      }
+    }
+  }
+}
+
+.block-editor-plain-text {
+  .has-text-color & {
+    color: $text-color;
+  }
+}
+
+.hide-featured-image {
+  .editor-post-featured-image__container {
+    display: none;
+  }
+}
+
+.components-button.has-icon .dashicon {
+  margin: 0 auto;
+}
+
+.column-count-2 {
+  column-count: 2;
+}
+
+.column-count-3 {
+  column-count: 3;
+}
+
+.card {
+  @include card;
+}
+
+.invalid {
+  input {
+    background: rgba(#f00, 0.2);
+  }
+}
+
+.is-busy {
+  pointer-events: none;
+}
+
+/*
+* Editor
+*/
+.wp-block {
+  max-width: $site-container;
+}
+
+.block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+  color: inherit;
+  opacity: 0.6;
+}
+
+.components-dropdown > .block-editor-button-block-appender {
+  background: rgba(#fff, 0.75);
+}
+
+.components-unit-control__unit-label {
+  font-size: 10px !important;
+}
+
+/*
+* Sortable
+*/
+.sortable-item {
+  padding: 0 5px;
+  list-style: none;
+  width: 100%;
+  margin: calc($grid-padding * 2) 0 0 0;
+  .card {
+    height: 100%;
+    margin: 0;
+  }
+}
+
+.sortable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 5px 0 2px;
+  padding: 0 0 $card-padding 0;
+  > * {
+    z-index: 2;
+  }
+  + .card-image {
+    margin-top: calc(-36px - $card-padding * 2);
+  }
+}
+
+.sortable-handle {
+  cursor: grab;
+  padding: 8px;
+  background-color: rgba(#fff, 0.2);
+  border-radius: 4px;
+  svg {
+    display: block;
+    fill: #555;
+  }
+  &:hover, .sortable-help & {
+    background: #fff;
+    svg {
+      fill: #000;
+    }
+  }
+}
+
+.sortable-delete {
+  background-color: rgba(#fff, 0.2);
+}
+
+.grabbing {
+  cursor: grabbing;
+}

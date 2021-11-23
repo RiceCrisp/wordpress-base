@@ -1,0 +1,14 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-card {
+  &.has-text-color {
+    .card {
+      color: inherit;
+    }
+  }
+  &.has-background {
+    .card {
+      background: none;
+    }
+  }
+}

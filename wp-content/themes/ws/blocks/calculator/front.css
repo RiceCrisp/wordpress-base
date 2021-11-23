@@ -1,0 +1,75 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-calculator {
+  margin: 0;
+  > .container {
+    margin-bottom: 0;
+  }
+  .slides-nav {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid border-color;
+    li {
+      margin: 0;
+      transition: 0.3s ease-in-out;
+    }
+  }
+  .slides {
+    list-style: none;
+    margin: 0;
+    position: relative;
+    border: 1px solid $border-color;
+    padding: calc($grid-padding * 2);
+    .slide {
+      > *:first-child {
+        margin-top: 0;
+      }
+      &:first-child {
+        .previous-button {
+          display: none;
+        }
+      }
+      &:last-child {
+        .next-button {
+          display: none;
+        }
+      }
+      .previous-button, .next-button {
+        margin: 0;
+      }
+    }
+  }
+  .invalid {
+    box-shadow: 0 0 0 2px rgba(#f00, 0.5);
+  }
+}
+
+@keyframes switch {
+  from {
+    position: absolute;
+  }
+  to {
+    position: relative;
+  }
+}
+.fade-enter-active {
+  transition: opacity 0.3s 0.3s ease-in-out;
+  animation-name: switch;
+  animation-duration: 0s;
+  animation-delay: 0.3s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+  animation-name: switch;
+  animation-duration: 0s;
+  animation-delay: 0.3s;
+  animation-direction: reverse;
+  animation-fill-mode: both;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}

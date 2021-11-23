@@ -1,0 +1,25 @@
+{
+  "apiVersion": 2,
+  "name": "ws/calculator",
+  "title": "Calculator",
+  "description": "Controls static variables and steps/questions.",
+  "icon": "slides",
+  "category": "ws-calculator",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true,
+    "multiple": false
+  },
+  "attributes": {
+    "headings": {
+      "type": "array",
+      "default": []
+    },
+    "fields": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "style": "front-css-calculator",
+  "script": "front-js-calculator"
+}

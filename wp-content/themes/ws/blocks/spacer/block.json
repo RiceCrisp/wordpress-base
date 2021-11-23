@@ -1,0 +1,14 @@
+{
+  "apiVersion": 2,
+  "name": "ws/spacer",
+  "title": "Spacer",
+  "description": "Add white space between blocks and customize its height.",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "attributes": {
+    "height": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-spacer"
+}

@@ -1,0 +1,45 @@
+{
+  "apiVersion": 2,
+  "name": "ws/kpi",
+  "title": "KPI",
+  "description": "KPI with secondary text.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true,
+    "textAlign": true
+  },
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "kpiColor": {
+      "type": "string"
+    },
+    "animate": {
+      "type": "boolean"
+    }
+  },
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "small",
+      "label": "Small"
+    }
+  ],
+  "example": {
+    "attributes": {
+      "value": "1,000",
+      "label": "This is a kpi"
+    }
+  },
+  "style": "front-css-kpi",
+  "script": "front-js-kpi"
+}

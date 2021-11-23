@@ -1,0 +1,42 @@
+@import '../../src/css/variables.css';
+
+.wp-block-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  &[class] {
+    margin: 0 calc(-$default-margin / 2) calc($default-margin / 2);
+  }
+  .wp-block-ws-split-half:last-child > &.is-content-justification-right {
+    @media (--md-down) {
+      justify-content: initial;
+    }
+  }
+  .wp-block-button {
+    margin: 0;
+    padding: 0 calc($default-margin / 2);
+  }
+  .wp-block-button__link {
+    margin-bottom: calc($default-margin / 2);
+  }
+}
+
+.wp-block-button .wp-block-button__link {
+  @include button;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+  @include button-outline;
+}
+
+.wp-block-button.is-style-underline .wp-block-button__link {
+  @include button-underline;
+}
+
+.wp-block-buttons .wp-block-button.is-style-underline {
+  margin-bottom: $default-margin;
+}
+
+.wp-block-button.is-style-arrow .wp-block-button__link {
+  @include button-arrow;
+}

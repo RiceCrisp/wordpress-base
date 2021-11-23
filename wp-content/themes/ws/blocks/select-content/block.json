@@ -1,0 +1,23 @@
+{
+  "apiVersion": 2,
+  "name": "ws/select-content",
+  "title": "Select Content",
+  "description": "Highlight hand-picked content unrelated to post date or taxonomy.",
+  "category": "ws-dynamic",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "ids": {
+      "type": "array",
+      "default": []
+    },
+    "sideScroll": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-accordion {
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  + .wp-block-ws-accordion {
+    margin-top: calc(-1 * $default-margin - 1px);
+  }
+  .block-background {
+    display: none;
+  }
+  .accordion-button {
+    @include h(3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    width: 100%;
+    box-shadow: none;
+    margin: 0;
+    padding: calc($card-padding / 2) 0;
+    text-transform: none;
+    letter-spacing: normal;
+    &:hover, &:focus {
+      transform: none;
+    }
+    &.open {
+      .accordion-icon {
+        .down {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  h3 {
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+  }
+  .accordion-heading {
+    margin: 0;
+    text-align: left;
+    flex: 1 1 auto;
+  }
+  .accordion-icon {
+    flex: none;
+    color: $text-color;
+    width: 24px;
+    height: 24px;
+    stroke-width: 1px;
+    stroke: $text-color;
+    path {
+      transition: 0.2s;
+    }
+  }
+  .accordion-panel {
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    > div {
+      padding: 10px 0 calc($card-padding / 2);
+    }
+  }
+  @media (--sm-down) {
+    .accordion-button {
+      padding: calc($card-padding / 2);
+    }
+    .accordion-icon {
+      right: calc($card-padding / 2);
+    }
+    .accordion-panel {
+      > div {
+        padding: 10px calc($card-padding / 2 + 20px) calc($card-padding / 2);
+      }
+    }
+  }
+}

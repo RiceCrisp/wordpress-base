@@ -1,0 +1,14 @@
+{
+  "apiVersion": 2,
+  "name": "ws/icon-list",
+  "title": "Icon List",
+  "description": "List with svg bullet points.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "color": {
+      "background": false
+    }
+  },
+  "style": "front-css-icon-list"
+}

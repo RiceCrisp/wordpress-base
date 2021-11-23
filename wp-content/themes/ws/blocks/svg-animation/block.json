@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "ws/svg-animation",
+  "title": "SVG Animation",
+  "description": "SVG animation via the lottie.js library.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "json": {
+      "type": "string"
+    },
+    "loop": {
+      "type": "boolean"
+    }
+  },
+  "script": "front-js-svg-animation"
+}

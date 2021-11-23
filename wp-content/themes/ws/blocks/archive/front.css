@@ -1,0 +1,128 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-archive {
+  position: relative;
+  padding: 0;
+  .archive-filters {
+    margin-bottom: $default-margin;
+    position: relative;
+    .row {
+      justify-content: space-between;
+    }
+    .archive-filter {
+      position: relative;
+    }
+    &.archive-filters-0 {
+      display: none;
+    }
+    &.archive-filters-1 {
+      .archive-filter {
+        @media (--lg-up) {
+          @include col-size(4);
+        }
+      }
+    }
+    &.archive-filters-2 {
+      .archive-filter {
+        @media (--md-up) {
+          @include col-size(6);
+        }
+        @media (--lg-up) {
+          @include col-size(4);
+        }
+      }
+    }
+    &.archive-filters-3 {
+      .archive-filter {
+        @media (--lg-up) {
+          @include col-size(4);
+        }
+      }
+    }
+    &.archive-filters-4 {
+      .archive-filter {
+        @media (--sm-up) {
+          @include col-size(6);
+        }
+        @media (--lg-up) {
+          @include col-size(3);
+        }
+      }
+    }
+    label {
+      display: table;
+    }
+  }
+  .search-icon {
+    position: absolute;
+    fill: $dawn;
+    bottom: calc($default-margin + 14px);
+    right: calc($grid-padding + $input-padding);
+    width: 18px;
+    height: 18px;
+  }
+  @at-root {
+    .archive-controls {
+      min-width: 100%;
+      text-align: center;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      > * {
+        margin: 0 $grid-padding calc($grid-padding * 2);
+      }
+      .previous-page {
+        flex: 1 1 0;
+        text-align: right;
+      }
+      .current-page {
+        flex: none;
+        text-align: center;
+        select {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-right: 30px;
+          display: inline-block;
+          width: auto;
+          margin: 0;
+        }
+      }
+      .next-page {
+        flex: 1 1 0;
+      }
+      button {
+        @include button;
+      }
+      a {
+        display: inline-block;
+        &.previous {
+          &::before {
+            content: '< ';
+          }
+        }
+        &.next {
+          &::after {
+            content: ' >';
+          }
+        }
+      }
+    }
+  }
+}
+
+.archive-loading {
+  display: inline-block;
+  border: 5px solid #ccc;
+  border-top: 5px solid #999;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  flex: none;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

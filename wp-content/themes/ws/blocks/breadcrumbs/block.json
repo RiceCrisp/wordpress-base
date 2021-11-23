@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "ws/breadcrumbs",
+  "title": "Breadcrumbs",
+  "description": "List of parent pages according to url structure.",
+  "category": "ws-dynamic",
+  "textdomain": "ws",
+  "supports": {
+    "textAlign": true
+  },
+  "attributes": {
+    "separator": {
+      "type": "string"
+    },
+    "includeCurrent": {
+      "type": "boolean"
+    }
+  },
+  "style": "front-css-breadcrumbs"
+}

@@ -1,0 +1,21 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-kpi {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  .kpi-value {
+    @include h(1);
+    margin: 0;
+  }
+  .kpi-label {
+    margin: 0;
+  }
+  &.is-style-small {
+    .kpi-value {
+      @include h(3);
+      margin: 0;
+    }
+  }
+}

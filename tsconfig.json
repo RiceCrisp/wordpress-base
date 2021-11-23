@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "module": "commonjs",
+    "strict": true,
+    "target": "ES6",
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": "wp-content/themes/ws",
+    "paths": {
+      "@ws/css": ["src/css/variables.css"],
+      "@ws/components": ["src/js/admin/components"],
+      "@ws/hooks": ["src/js/admin/hooks"],
+      "@ws/modules/*": ["src/js/front/modules/*"],
+      "@ws/theme": ["theme.json"],
+      "@ws/types": ["src/js/types.ts"],
+      "@ws/utils": ["src/js/utils.ts"]
+    }
+  }
+}

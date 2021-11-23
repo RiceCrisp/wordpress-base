@@ -1,0 +1,29 @@
+{
+  "apiVersion": 2,
+  "name": "ws/children",
+  "title": "Children",
+  "description": "List all hierarchical children of the current or selected page.",
+  "category": "ws-dynamic",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "parent": {
+      "type": "number"
+    },
+    "allPosts": {
+      "type": "boolean"
+    },
+    "numPosts": {
+      "type": "number",
+      "default": 3
+    },
+    "sideScroll": {
+      "type": "boolean"
+    }
+  }
+}

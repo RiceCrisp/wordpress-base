@@ -1,0 +1,23 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-spacer {
+  height: $section-padding;
+  &[class] {
+    margin: 0;
+  }
+  &.spacer-50 {
+    height: calc($section-padding / 2);
+  }
+  &.is-selected {
+    background: #eee;
+  }
+  *:not(.wp-block-ws-spacer):not(.wp-block-ws-section) + &:not(:last-child) {
+    height: calc($section-padding - $default-margin);
+    &.spacer-50 {
+      height: calc($section-padding / 2 - $default-margin);
+    }
+  }
+  + * {
+    margin-top: 0;
+  }
+}

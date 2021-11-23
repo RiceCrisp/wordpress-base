@@ -1,0 +1,24 @@
+@import '../../src/css/variables.css';
+
+.wp-block-search {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  max-width: 576px;
+  label {
+    @include screenreader;
+  }
+  .wp-block-search__input {
+    margin-left: 10px;
+    margin-right: 10px;
+    flex: 1 1 0;
+    min-width: 250px;
+    border: 0;
+  }
+  .wp-block-search__button {
+    @include button;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

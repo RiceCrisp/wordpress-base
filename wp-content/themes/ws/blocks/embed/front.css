@@ -1,0 +1,5 @@
+@import '../../src/css/variables.css';
+
+.wp-block-embed {
+  margin-bottom: $default-margin;
+}

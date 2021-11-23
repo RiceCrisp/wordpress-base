@@ -1,0 +1,27 @@
+{
+  "apiVersion": 2,
+  "name": "ws/lightbox",
+  "title": "Lightbox",
+  "description": "Play button with optional background image that opens a lightbox playing a video.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "variation": {
+      "type": "string",
+      "default": "button"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "preview": {
+      "type": "number"
+    },
+    "width": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-lightbox"
+}

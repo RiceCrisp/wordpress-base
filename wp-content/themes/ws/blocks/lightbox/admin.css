@@ -1,0 +1,97 @@
+@import '../../src/css/admin/modules/variables.css';
+
+.lightbox {
+  display: flex;
+  background: rgba(#000, 0.75);
+  color: #fff;
+  position: absolute;
+  padding-top: $default-margin;
+  padding-bottom: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  visibility: visible;
+  opacity: 1;
+  &.width-narrow {
+    .lightbox-inner {
+      @media (--xl-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+    }
+  }
+  &.width-narrower {
+    .lightbox-inner {
+      @media (--lg-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+      @media (--xl-up) {
+        @include col-size(8);
+        @include col-offset(2);
+      }
+    }
+  }
+  &.width-narrowest {
+    .lightbox-inner {
+      @media (--md-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+      @media (--lg-up) {
+        @include col-size(8);
+        @include col-offset(2);
+      }
+      @media (--xl-up) {
+        @include col-size(6);
+        @include col-offset(3);
+      }
+    }
+  }
+  .container {
+    margin: auto;
+  }
+  .lightbox-inner {
+    @include col;
+    @include col-size(12);
+  }
+  .lightbox-content {
+    padding-top: 20px;
+    padding-bottom: 0.1px;
+    position: relative;
+    z-index: 1;
+    max-height: 100%;
+    > *:first-child {
+      margin-top: 0;
+    }
+  }
+  .lightbox-close {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    border: 0;
+    display: block;
+    margin-left: auto;
+    color: #ddd;
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &:hover, &:focus {
+      transform: none;
+      color: #fff;
+    }
+    svg {
+      display: block;
+      fill: #fff;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

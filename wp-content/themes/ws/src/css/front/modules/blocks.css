@@ -1,0 +1,177 @@
+/* This stylesheet is for block styles that are too generic to fit into individual block stylesheets. If a style only applies to a single block, then it should be moved to that block's stylesheet. */
+
+[class^=wp-block] {
+  margin: 0 0 $default-margin 0;
+}
+
+/*
+ * Backgrounds
+ */
+.block-background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  > .parallax-bg {
+    height: 100%;
+  }
+}
+
+.block-background-media {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.block-background-video {
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.has-contain-background-size {
+  .block-background-media {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.has-right-half-background-size {
+  .block-background-media {
+    width: auto;
+    margin-left: 50%;
+    @media (--md-down) {
+      display: none;
+    }
+  }
+}
+
+.has-left-half-background-size {
+  .block-background-media {
+    width: auto;
+    margin-right: 50%;
+    @media (--md-down) {
+      display: none;
+    }
+  }
+}
+
+.has-background-overlay {
+  .block-background-media {
+    @include overlay(#000);
+  }
+}
+
+/*
+ * List Columns
+ */
+.column-count-2 {
+  @media (--sm-up) {
+    column-count: 2;
+  }
+}
+
+.column-count-3 {
+  @media (--md-up) {
+    column-count: 3;
+  }
+}
+
+/*
+ * Extend Left/Right
+ */
+$extend-overflow: 100px;
+
+.extend-left {
+  @each $breakpoint $breakname in $breaks {
+    @media (--$(breakname)-up) {
+      margin-left: calc(-$container-padding - ((100vw - $(breakpoint)) / 2));
+      &.wp-block-image {
+        overflow: hidden;
+      }
+      &.wp-block-ws-card {
+        > .card-body {
+          padding-left: calc($container-padding + ((100vw - $(breakpoint)) / 2));
+        }
+      }
+      img {
+        max-width: none;
+        width: calc(100% + $extend-overflow);
+        margin-left: -$extend-overflow;
+      }
+      @if $breakname == xs {
+        margin-left: calc(-$container-padding);
+        &.wp-block-ws-card {
+          > .card-body {
+            padding-left: $card-padding;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: calc($container-width + $extend-overflow)) {
+    margin-left: calc(-$extend-overflow + $grid-padding);
+    &.wp-block-ws-card {
+      > .card-body {
+        padding-left: calc($extend-overflow - $grid-padding);
+      }
+    }
+    img {
+      max-width: 100%;
+      width: auto;
+      margin-left: initial;
+    }
+  }
+}
+
+.extend-right {
+  @each $breakpoint $breakname in $breaks {
+    @media (--$(breakname)-up) {
+      margin-right: calc(-$container-padding - ((100vw - $(breakpoint)) / 2));
+      &.wp-block-image {
+        overflow: hidden;
+      }
+      &.wp-block-ws-card {
+        > .card-body {
+          padding-right: calc($container-padding + ((100vw - $(breakpoint)) / 2));
+        }
+      }
+      img {
+        max-width: none;
+        width: calc(100% + $extend-overflow);
+      }
+      @if $breakname == xs {
+        margin-right: calc(-$container-padding);
+        &.wp-block-ws-card {
+          > .card-body {
+            padding-right: $card-padding;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: calc($container-width + $extend-overflow)) {
+    margin-right: calc(-$extend-overflow + $grid-padding);
+    &.wp-block-ws-card {
+      > .card-body {
+        padding-right: calc($extend-overflow - $grid-padding);
+      }
+    }
+    img {
+      max-width: 100%;
+      width: auto;
+    }
+  }
+  > * {
+    margin-left: auto;
+  }
+}

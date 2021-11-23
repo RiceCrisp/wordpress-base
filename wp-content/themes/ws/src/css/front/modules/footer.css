@@ -1,0 +1,63 @@
+/*
+ * General
+ */
+.site-footer {
+  background: $night;
+  color: #fff;
+}
+
+/*
+ * Main Area
+ */
+.footer-main {
+  padding-top: $section-padding;
+  padding-bottom: calc($section-padding / 2);
+  .widgets {
+    @include row;
+    list-style: none;
+    margin-bottom: 0;
+    &.footer-1 {
+      .widget {
+        @media (--md-up) {
+          @include col-size(6);
+        }
+      }
+    }
+  }
+  .widget {
+    @include col;
+    @include col-size(12);
+    margin: 0;
+    padding-bottom: calc($section-padding / 2);
+    .menu {
+      list-style: none;
+      margin: 0;
+    }
+  }
+  .textwidget {
+    > *:first-child {
+      margin-top: 0;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*
+ * Legal Area
+ */
+.footer-legal {
+  background: #000;
+  .widgets {
+    @include row;
+    list-style: none;
+  }
+  .widget {
+    @include col;
+    @include col-size(12);
+  }
+  p {
+    margin: 10px 0;
+  }
+}

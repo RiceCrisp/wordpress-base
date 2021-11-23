@@ -1,0 +1,23 @@
+name: Deploy to Production
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install
+      - run: npm run build
+      - uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.PRIVATE_KEY }}
+        with:
+          flags: "-rv --delete-excluded"
+          options: "--exclude 'src'"
+          ssh_options: ""
+          src: "./wp-content/themes/_ws/"
+          dest: "${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_SSH_HOST }}:/sites/${{ secrets.PROD_SSH_USER }}/wp-content/themes/_ws/"

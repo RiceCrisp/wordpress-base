@@ -1,0 +1,60 @@
+image: dpolyakov/docker-node-latest-with-rsync
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Commit
+          script:
+            - echo 'Commit Complete'
+      - step:
+          name: Deploy
+          caches:
+            - node
+          deployment: production
+          trigger: manual
+          script:
+            - npm install
+            - npm run build
+            - rsync -rv --delete-excluded --exclude 'src' ./wp-content/themes/ws/ $SSH_USER@$SSH_HOST:/sites/$SSH_USER/wp-content/themes/ws/
+            # - pipe: atlassian/sftp-deploy:0.5.3
+            #   variables:
+            #     USER: $SFTP_USER
+            #     SERVER: $SFTP_HOST
+            #     LOCAL_PATH: 'wp-content/themes/_ws/*'
+            #     REMOTE_PATH: $SFTP_PATH
+            #     PASSWORD: $SFTP_PASSWORD
+            #     EXTRA_ARGS: "-P $SFTP_PORT"
+            - echo 'Deployment Complete'
+    staging:
+      - step:
+          name: Commit
+          script:
+            - echo 'Commit Complete'
+      - step:
+          name: Deploy
+          caches:
+            - node
+          deployment: staging
+          trigger: manual
+          script:
+            - npm install
+            - npm run build
+            - rsync -rv --delete-excluded --exclude 'src' ./wp-content/themes/ws/ $SSH_USER@$SSH_HOST:/sites/$SSH_USER/wp-content/themes/ws/
+            - echo 'Deployment Complete'
+    dev:
+      - step:
+          name: Commit
+          script:
+            - echo 'Commit Complete'
+      - step:
+          name: Deploy
+          caches:
+            - node
+          deployment: development
+          trigger: manual
+          script:
+            - npm install
+            - npm run build
+            - rsync -rv --delete-excluded --exclude 'src' ./wp-content/themes/ws/ $SSH_USER@$SSH_HOST:/sites/$SSH_USER/wp-content/themes/ws/
+            - echo 'Deployment Complete'

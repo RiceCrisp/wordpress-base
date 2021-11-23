@@ -1,0 +1,33 @@
+{
+  "apiVersion": 2,
+  "name": "ws/icon",
+  "title": "Icon",
+  "description": "SVG icon.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "textAlign": true
+  },
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string",
+      "default": "artboard"
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "iconBackgroundColor": {
+      "type": "string"
+    },
+    "iconBackgroundGradient": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-icon"
+}

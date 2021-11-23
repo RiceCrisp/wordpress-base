@@ -1,0 +1,21 @@
+{
+  "apiVersion": 2,
+  "name": "ws/google-map",
+  "title": "Google Map",
+  "description": "Iframe of Google Maps with editable location.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "location": {
+      "type": "object"
+    },
+    "styles": {
+      "type": "string"
+    }
+  },
+  "style": "front-css-google-map",
+  "script": "front-js-google-map"
+}

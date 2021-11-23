@@ -1,0 +1,104 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-section {
+  display: inline-block; /* Negative margin bug fix */
+  vertical-align: top; /* Negative margin bug fix */
+  width: 100%;
+  padding-top: $section-padding;
+  padding-bottom: $section-padding;
+  position: relative;
+  background: none !important;
+  &[class] {
+    margin-bottom: 0;
+  }
+  &.width-narrowest {
+    .section-inner {
+      @media (--md-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+      @media (--lg-up) {
+        @include col-size(8);
+        @include col-offset(2);
+      }
+      @media (--xl-up) {
+        @include col-size(6);
+        @include col-offset(3);
+      }
+    }
+  }
+  &.width-narrower {
+    .section-inner {
+      @media (--lg-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+      @media (--xl-up) {
+        @include col-size(8);
+        @include col-offset(2);
+      }
+    }
+  }
+  &.width-narrow {
+    .section-inner {
+      @media (--xl-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+    }
+  }
+  &.width-wide {
+    .section-container {
+      width: 100%;
+    }
+    .wp-block-ws-tiles, .tiles-row, .wp-block-image {
+      margin-left: -$container-padding;
+      margin-right: -$container-padding;
+    }
+  }
+  &.full-screen {
+    min-height: calc(100vh - $mobile-menu-height);
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    @media (--lg-up) {
+      min-height: calc(100vh - $desktop-menu-height);
+    }
+  }
+  .section-container {
+    margin-bottom: -$default-margin;
+  }
+  .section-inner {
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+    > *:first-child {
+      margin-top: 0;
+    }
+  }
+  @each $padding in $padding-options {
+    @if $padding < 0 {
+      &.padding-top-$(padding) {
+        padding-top: 0;
+        > *:last-child {
+          margin-top: calc($section-padding * ($padding / 100));
+        }
+      }
+      &.padding-bottom-$(padding) {
+        padding-bottom: 0;
+        > *:last-child {
+          margin-bottom: calc($section-padding * ($padding / 100) - $default-margin);
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+    @else {
+      &.padding-top-$(padding) {
+        padding-top: calc($section-padding * ($padding / 100));
+      }
+      &.padding-bottom-$(padding) {
+        padding-bottom: calc($section-padding * ($padding / 100));
+      }
+    }
+  }
+}

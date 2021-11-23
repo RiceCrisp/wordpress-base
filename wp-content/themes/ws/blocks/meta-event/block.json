@@ -1,0 +1,70 @@
+{
+  "apiVersion": 2,
+  "name": "ws/meta-event",
+  "title": "Event Meta",
+  "description": "Data about the event. Only the data is used, so this block's position does not matter.",
+  "icon": "calendar",
+  "category": "ws-meta",
+  "textdomain": "ws",
+  "supports": {
+    "multiple": false,
+    "customClassName": false
+  },
+  "attributes": {
+    "startDate": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_start_date"
+    },
+    "endDate": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_end_date"
+    },
+    "dateTBD": {
+      "type": "boolean",
+      "source": "meta",
+      "meta": "_event_date_tbd"
+    },
+    "noTime": {
+      "type": "boolean",
+      "source": "meta",
+      "meta": "_event_no_time"
+    },
+    "hasLocation": {
+      "type": "boolean",
+      "source": "meta",
+      "meta": "_event_has_location"
+    },
+    "locationName": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_location_name"
+    },
+    "locationStreet": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_location_street"
+    },
+    "locationCity": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_location_city"
+    },
+    "locationState": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_location_state"
+    },
+    "locationZip": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_location_zip"
+    },
+    "locationOverride": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_event_location_override"
+    }
+  }
+}

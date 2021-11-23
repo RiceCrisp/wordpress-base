@@ -1,0 +1,13 @@
+@import '../../front/modules/archive.css';
+@import '../../front/modules/lightbox.css';
+
+.side-scroll {
+  margin: 0 -$grid-padding !important;
+  padding: 0 !important;
+  scroll-padding: 0 !important;
+  width: calc(100% + $grid-padding * 2) !important;
+}
+
+.archive-view {
+  pointer-events: none;
+}

@@ -1,0 +1,45 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-lightbox {
+  position: relative;
+  min-width: 80px;
+  min-height: 80px;
+  &.variation-preview {
+    line-height: 0;
+    .preview-image, .preview-image img {
+      border-radius: $border-radius;
+      width: 100%;
+    }
+    .lightbox-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      background: transparent;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0;
+    }
+    .lightbox-button-icon {
+      display: block;
+      background: #fff;
+      color: #000;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      padding: 15px 15px 15px 18px;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &.variation-button {
+    .lightbox-button {
+      @include button;
+    }
+  }
+}

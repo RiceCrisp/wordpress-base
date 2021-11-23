@@ -1,0 +1,96 @@
+.seo-post-status-info {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  .seo-audit {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
+  ul {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+  li {
+    margin: 0;
+    + li {
+      margin-top: 10px;
+    }
+  }
+  .components-notice {
+    margin: 0;
+  }
+  .components-notice__content {
+    margin: 0;
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+.twitter-username {
+  > .components-base-control__field {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  label {
+    width: 100%;
+  }
+  span {
+    background: $gray;
+    color: #fff;
+    padding: 5px 8px;
+    margin: 1px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin-right: 0;
+  }
+  input.components-text-control__input {
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .field-container {
+    flex: 1 1 0;
+    .components-base-control__field {
+      margin: 0;
+    }
+  }
+}
+
+.padding {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  .components-base-control {
+    box-sizing: border-box;
+    flex: 1 1 0;
+    padding: 0 10px;
+  }
+}
+
+.seo-preview {
+  background: #eee;
+  padding: 10px;
+  margin: 4px 0 1em;
+  p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  #seo-preview-title {
+    font-size: 18px;
+    color: #1a0dab;
+  }
+  #seo-preview-url {
+    font-size: 14px;
+    color: #006621;
+    word-break: break-all;
+  }
+  #seo-preview-description {
+    font-size: 13px;
+    color: #545454;
+  }
+}

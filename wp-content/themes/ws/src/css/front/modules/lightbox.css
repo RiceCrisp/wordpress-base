@@ -1,0 +1,106 @@
+/* This stylesheet is for defining lightbox functionality. Lightbox functionality is used by more than just the lightbox block, so its styles are saved here. */
+
+.lightbox {
+  display: flex;
+  background: rgba(#000, 0.75);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  padding-top: $default-margin;
+  padding-bottom: 0;
+  top: 1000vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0s 1s, visibility 0s 1s, opacity 1s;
+  &.show {
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: top 0s, visibility 0s, opacity 1s;
+  }
+  &.width-narrow {
+    .lightbox-inner {
+      @media (--xl-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+    }
+  }
+  &.width-narrower {
+    .lightbox-inner {
+      @media (--lg-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+      @media (--xl-up) {
+        @include col-size(8);
+        @include col-offset(2);
+      }
+    }
+  }
+  &.width-narrowest {
+    .lightbox-inner {
+      @media (--md-up) {
+        @include col-size(10);
+        @include col-offset(1);
+      }
+      @media (--lg-up) {
+        @include col-size(8);
+        @include col-offset(2);
+      }
+      @media (--xl-up) {
+        @include col-size(6);
+        @include col-offset(3);
+      }
+    }
+  }
+  .container {
+    margin: auto;
+  }
+  .lightbox-inner {
+    @include col;
+    @include col-size(12);
+  }
+  .lightbox-content {
+    padding-top: 20px;
+    padding-bottom: 0.1px;
+    position: relative;
+    z-index: 1;
+    max-height: 100%;
+    > *:first-child {
+      margin-top: 0;
+    }
+  }
+  .lightbox-close {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    color: #ddd;
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &:hover, &:focus {
+      transform: none;
+      color: #fff;
+    }
+    svg {
+      display: block;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-google-map {
+  .google-map, iframe {
+    max-width: 100%;
+    border-radius: $border-radius;
+    height: 450px;
+  }
+}

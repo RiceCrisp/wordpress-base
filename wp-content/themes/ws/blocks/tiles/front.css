@@ -1,0 +1,62 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  @media (--md-down) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (--xs-down) {
+    grid-template-columns: 100%;
+  }
+  &.has-gutters {
+    grid-gap: calc($grid-padding * 2);
+  }
+}
+
+.wp-block-ws-tile {
+  @include ratio(100%);
+  position: relative;
+  grid-column-end: span 1;
+  margin: 0;
+  height: 100%;
+  &[class] {
+    margin: 0;
+    padding: 0;
+  }
+  &.two-one {
+    @include ratio(50%);
+    grid-column-end: span 2;
+  }
+  &.one-two {
+    @include ratio(200%);
+    grid-row-end: span 2;
+  }
+  &.two-two {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+  }
+  @media (--xs-down) {
+    &[class] {
+      @include ratio(100%);
+      grid-column-end: span 1;
+      grid-row-end: span 1;
+    }
+  }
+  .inner-tile {
+    position: relative;
+    height: 100%;
+    padding: $card-padding $card-padding calc($card-padding - $default-margin);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    > * {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

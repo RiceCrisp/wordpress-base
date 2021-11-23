@@ -1,0 +1,35 @@
+@import '../../src/css/admin/modules/variables.css';
+
+.wp-block-ws-tabbed-panels {
+  .tab-container {
+    flex: 1 1 auto;
+  }
+  .tab {
+    width: 100%;
+  }
+  &.horizontal {
+    .controls {
+      display: flex;
+      justify-content: center;
+    }
+    .add-tab {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &.vertical {
+    .tab-container {
+      display: flex;
+      .controls {
+        flex: none;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .add-tab {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

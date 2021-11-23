@@ -1,0 +1,22 @@
+{
+  "apiVersion": 2,
+  "name": "ws/tile",
+  "title": "Tile",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "html": false,
+    "backgroundMedia": true,
+    "color": {
+      "gradients": true
+    }
+  },
+  "parent": [
+    "ws/tiles"
+  ],
+  "attributes": {
+    "size": {
+      "type": "string"
+    }
+  }
+}

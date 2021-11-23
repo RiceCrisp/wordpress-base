@@ -1,0 +1,17 @@
+{
+  "apiVersion": 2,
+  "name": "ws/person",
+  "title": "Person",
+  "description": "Profile picture with name and any other information.",
+  "category": "ws-bit",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "image": {
+      "type": "number"
+    }
+  },
+  "style": "front-css-person"
+}

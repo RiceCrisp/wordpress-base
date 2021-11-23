@@ -1,0 +1,413 @@
+/* This stylesheet is for general browser css and helper classes. */
+
+/*
+* General
+*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include text;
+  background: $body-color;
+  overflow-wrap: break-word;
+  &.no-transitions * {
+    transition: none !important;
+  }
+}
+
+.site-container {
+  width: 100%;
+  max-width: $site-container;
+  margin: 0 auto;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: $dawn solid 2px;
+}
+
+h1, .h1, .has-h-1-font-size {
+  @include h(1);
+}
+
+h2, .h2, .has-h-2-font-size {
+  @include h(2);
+}
+
+h3, .h3, .has-h-3-font-size {
+  @include h(3);
+}
+
+h4, .h4, .has-h-4-font-size {
+  @include h(4);
+}
+
+h5, .h5, .has-h-5-font-size {
+  @include h(5);
+}
+
+h6, .h6, .has-h-6-font-size {
+  @include h(6);
+}
+
+.has-paragraph-font-size {
+  @include text;
+}
+
+p {
+  margin: 0 0 $default-margin;
+}
+
+a, .a {
+  color: $dawn;
+  transition: 0.2s;
+  &:hover, &:focus {
+    color: $dawn;
+  }
+}
+
+b, strong {
+  font-weight: $bold;
+}
+
+i, em {
+  font-style: italic;
+}
+
+small, .small {
+  @include small;
+}
+
+ul {
+  list-style: disc;
+  margin: 0 0 $default-margin 30px;
+}
+
+ol {
+  list-style: decimal;
+  margin: 0 0 $default-margin 30px;
+}
+
+li {
+  + li {
+    margin: calc($default-margin / 4) 0 0;
+  }
+  ul, ol {
+    margin-top: $default-margin;
+  }
+}
+
+form {
+  margin: 0 0 $default-margin;
+}
+
+label {
+  font-size: 14px;
+  margin: 0;
+}
+
+input[type=text], input[type=email], input[type=tel], input[type=search], input[type=password], select, textarea {
+  @include input;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  width: auto;
+  margin: 4px 10px 0 0;
+}
+
+input[type="color"] {
+  width: auto;
+  min-width: 50px;
+  padding: 0;
+  border: 1px solid $border-color;
+}
+
+input::placeholder, textarea::placeholder, select.empty {
+  line-height: 1.5rem;
+  color: $text-color-light;
+}
+
+button {
+  cursor: pointer;
+  &:active {
+    color: inherit;
+  }
+}
+
+[type=button], [type=submit], .button {
+  @include button;
+}
+
+.button-outline {
+  @include button-outline;
+}
+
+.button-underline {
+  @include button-underline;
+}
+
+.button-arrow {
+  @include button-arrow;
+}
+
+.button-arrow-back {
+  @include button-arrow-back;
+}
+
+select, .listbox > button {
+  @include select;
+}
+
+.listbox {
+  display: inline-block;
+  position: relative;
+  button {
+    text-align: left;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    z-index: 5;
+    top: calc(100% - $default-margin);
+    display: none;
+    background: #fff;
+    box-shadow: $shadow;
+    min-width: 100%;
+    padding: 20px 0;
+    border-radius: $border-radius;
+    outline: none;
+    max-height: 280px;
+    overflow-y: scroll;
+  }
+  li {
+    padding: 2.5px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s ease-in-out;
+    &:hover, &:focus {
+      color: $dawn;
+    }
+    &.selected {
+      color: $dawn;
+      font-weight: $normal;
+    }
+  }
+  &.open {
+    ul {
+      display: block;
+    }
+  }
+}
+
+fieldset {
+  border: 1px solid $border-color;
+  padding: 10px;
+}
+
+[disabled], .disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+table {
+  width: 100%;
+  margin: 0 0 $default-margin;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid $border-color;
+}
+
+th {
+  font-weight: $bold;
+  border-bottom-width: 2px;
+}
+
+hr {
+  @include hr;
+}
+
+blockquote {
+  margin: 0 0 $default-margin;
+}
+
+pre {
+  white-space: break-spaces;
+  background: $gray;
+  padding: 10px 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0 0 $default-margin 0;
+}
+
+figcaption {
+  font-size: 12px;
+  margin: 0;
+}
+
+svg {
+  fill: currentColor;
+  display: block;
+  stroke-width: 0; /* Lottie animations */
+}
+
+iframe {
+  width: 100%;
+}
+
+/*
+* Helper Classes
+*/
+.card {
+  @include card;
+}
+
+.object-fit-container {
+  position: relative;
+  > img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card-link {
+  position: relative;
+  a::before, button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.square {
+  @include ratio(100%);
+}
+
+video.no-fullscreen {
+  &::-webkit-media-controls-fullscreen-button {
+    display: none;
+  }
+}
+
+.text-center, .centered {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.no-margin-bottom {
+  margin-top: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.screen-reader-text {
+  @include screenreader;
+}
+
+.animate {
+  opacity: 0;
+}
+
+.animate-up {
+  transform: translateY(50px);
+}
+
+.animate-down {
+  transform: translateY(-50px);
+}
+
+.animate-right {
+  transform: translateX(-50px);
+}
+
+.animate-left {
+  transform: translateX(50px);
+}
+
+.animation-done {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.no-overlay {
+  &::after {
+    display: none;
+  }
+}
+
+.label {
+  @include label;
+}
+
+.parallax {
+  position: relative;
+}
+
+.parallax-bg {
+  overflow: hidden;
+  > * {
+    position: relative;
+    -webkit-backface-visibility: hidden; /* prevents shaking in some browsers */
+  }
+}

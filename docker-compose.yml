@@ -1,0 +1,73 @@
+version: "3.7"
+
+services:
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - back
+
+  wp:
+    image: wordpress:latest
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - ./wp-content/:/var/www/html/wp-content/
+      # - ./php.ini:/var/www/html/php.ini
+      # To increase upload size uncomment the previous line and add this to the file php.ini file:
+        # file_uploads = On
+        # memory_limit = 64M
+        # upload_max_filesize = 64M
+        # post_max_size = 64M
+        # max_execution_time = 600
+      - wp_data:/var/www/html/
+    networks:
+      - back
+
+  wpcli:
+    image: wordpress:cli
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wp_data:/var/www/html/
+      - ./wp-content/:/var/www/html/wp-content/
+    networks:
+      - back
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+    networks:
+      - back
+
+networks:
+  back:
+volumes:
+  db_data:
+  wp_data:

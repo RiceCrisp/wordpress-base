@@ -1,0 +1,16 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-breadcrumbs {
+  @include label;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .separator {
+    margin: 0 5px;
+    font-weight: $bold;
+  }
+  &.empty {
+    display: none;
+  }
+}

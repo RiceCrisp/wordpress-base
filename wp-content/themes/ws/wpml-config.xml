@@ -1,0 +1,21 @@
+<wpml-config>
+  <gutenberg-blocks>
+    <gutenberg-block type="ws/accordion" translate="1">
+      <key name="heading" />
+    </gutenberg-block>
+    <gutenberg-block type="ws/kpi" translate="1">
+      <key name="value" />
+      <key name="label" />
+    </gutenberg-block>
+    <gutenberg-block type="ws/icon-list-item" translate="1">
+      <key name="text" />
+    </gutenberg-block>
+    <gutenberg-block type="ws/panel" translate="1">
+      <key name="heading" />
+    </gutenberg-block>
+    <gutenberg-block type="ws/testimonial" translate="1">
+      <key name="quote" />
+      <key name="citation" />
+    </gutenberg-block>
+  </gutenberg-blocks>
+</wpml-config>

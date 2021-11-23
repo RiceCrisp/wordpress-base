@@ -1,0 +1,413 @@
+/* This stylesheet should not create any css by itself. It should only create variables and mixins that can be used by other files, so importing it doesn't increase file size. */
+$gray: $sand;
+$grey: $gray;
+$body-color: #fff;
+$text-color: $night;
+$text-color-light: #b4b4b4;
+$border-color: #ddd;
+$border-radius: 0;
+$shadow: 0 5px 20px rgba(#000, 0.2);
+$shadow-2: 0 0 10px rgba(#000, 0.1);
+$font: 'Eina', helvetica, sans-serif;
+$heading-font: $font;
+$normal: 400;
+$light: 300;
+$bold: 700;
+$default-margin: 30px;
+$input-padding: 10px;
+$input-margin: $default-margin;
+$section-padding: 15vh;
+$grid-padding: 20px;
+$container-padding: 30px;
+$site-container: 1920px;
+$container-width: 1300px;
+$card-padding: 50px;
+$shadow-1: 0 10px 20px rgba(#000, 0.1);
+$shadow-2: 0 20px 40px rgba(#000, 0.15);
+$desktop-menu-height: 80px;
+$mobile-menu-height: 60px;
+
+$breaks: (xs:0, sm:576px, md:768px, lg:1080px, xl:$container-width);
+@each $breakpoint $breakname in $breaks {
+  @custom-media --$(breakname)-up (width >= $breakpoint);
+}
+$breaksalt: (xs:576px, sm:768px, md:1080px, lg:$container-width);
+@each $breakpoint $breakname in $breaksalt {
+  @custom-media --$(breakname)-down (width < $breakpoint);
+}
+
+$padding-options: (-100, -50, 0, 50, 100, 150, 200);
+
+/* Mixins */
+@mixin row {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: -$grid-padding;
+  margin-left: -$grid-padding;
+  > * {
+    @include col;
+    @include col-size(12);
+  }
+}
+
+@mixin col {
+  flex: 1 1 0;
+  max-width: 100%;
+  padding-left: $grid-padding;
+  padding-right: $grid-padding;
+}
+
+@mixin col-size($size) {
+  flex-basis: calc(1 / 12 * $size * 100%);
+  max-width: calc(1 / 12 * $size * 100%);
+  :root .side-scroll & {
+    min-width: calc(1 / 12 * $size * 100%);
+  }
+}
+
+@mixin col-offset($size) {
+  margin-left: calc(1 / 12 * $size * 100%);
+}
+
+@mixin text {
+  font-family: $font;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: $normal;
+  color: $text-color;
+}
+
+@mixin h($size) {
+  font-family: $heading-font;
+  margin-top: 0;
+  margin-bottom: $default-margin;
+  font-weight: $normal;
+  line-height: 1.5em;
+  .has-text-color & {
+    color: inherit;
+  }
+  @if $size == 1 {
+    font-size: 50px;
+    line-height: 1.25em;
+    @media (--xs-down) {
+      font-size: 42px;
+    }
+  }
+  @if $size == 2 {
+    font-size: 34px;
+    line-height: 1.3em;
+    margin-top: calc(3 * $default-margin);
+  }
+  @if $size == 3 {
+    font-size: 24px;
+    line-height: 1.4em;
+    margin-top: calc(2 * $default-margin);
+  }
+  @if $size == 4 {
+    font-size: 20px;
+  }
+  @if $size == 5 {
+    font-size: 18px;
+  }
+  @if $size == 6 {
+    font-size: 18px;
+  }
+  a, button {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    margin: 0;
+    &:hover, &:focus {
+      color: inherit;
+      background: inherit;
+    }
+  }
+}
+
+@mixin input {
+  width: 100%;
+  margin: 0 0 $input-margin;
+  border: 0;
+  border-radius: $border-radius;
+  padding: $input-padding;
+  color: $dawn;
+  font-size: 16px;
+  font-weight: $normal;
+  background-color: $gray;
+  line-height: 1.5em;
+  position: relative;
+}
+
+@mixin select {
+  @include input;
+  cursor: pointer;
+  appearance: none;
+  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg fill='$dawn' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0.1,6.9L1.9,5L12,15.3L22.1,5l1.8,1.8L12,19L0.1,6.9z'/%3E%3C/svg%3E);
+  background-repeat: no-repeat;
+  background-position: 97.5% 50%;
+  background-size: 16px 16px;
+  padding-right: calc($input-padding + 16px + 5px);
+  &::-ms-expand {
+    display: none;
+  }
+  option {
+    color: $text-color;
+  }
+}
+
+@mixin button {
+  background: $dawn;
+  color: #fff;
+  display: inline-block;
+  border-radius: $border-radius;
+  border: 0;
+  padding: 10px 30px;
+  font-size: 16px;
+  line-height: 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+@mixin button-outline {
+  @include button;
+  box-shadow: inset 0 0 0 2px currentColor;
+  border: 0;
+  color: $dawn;
+  background: transparent;
+  &:hover, &:focus {
+    background: $dawn;
+    color: #fff;
+    box-shadow: inset 0 0 0 2px $dawn;
+  }
+  &.has-white-color {
+    box-shadow: inset 0 0 0 2px #fff;
+    color: #fff;
+    &:hover, &:focus {
+      background: #fff;
+      color: $dawn;
+      .block-editor-writing-flow & {
+        color: $dawn !important;
+      }
+    }
+  }
+}
+
+@mixin button-underline {
+  @include button;
+  display: inline;
+  padding: 0;
+  background: none;
+  color: $text-color;
+  text-decoration: none;
+  border-radius: 0;
+  box-shadow: inset 0 -2px $dawn;
+  &:hover, &:focus {
+    color: $dawn;
+    .block-editor-writing-flow & {
+      color: $dawn !important;
+    }
+  }
+}
+
+@mixin button-arrow {
+  @include button;
+  display: inline-flex;
+  color: $dawn;
+  align-items: center;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  &::after {
+    content: url(data:image/svg+xml;charset=utf-8,%3Csvg fill='$dawn' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpolygon points='12.5 2.78 11.47 3.82 16.88 9.27 0.38 9.27 0.38 10.73 16.79 10.73 11.38 16.18 12.41 17.22 19.63 9.95 12.5 2.78'/%3E%3C/svg%3E);
+    margin: 0 0 0 10px;
+    display: block;
+    flex: none;
+    width: 24px;
+    height: 24px;
+    transition: 0.2s;
+  }
+  &:hover, &:focus {
+    color: $dawn;
+    &::after {
+      transform: translateX(10px);
+    }
+  }
+  &:empty {
+    &::after {
+      margin: 0;
+    }
+  }
+  @each $color $slug in $colors {
+    &.has-$(slug)-color {
+      color: $color;
+      &::after {
+        content: url(data:image/svg+xml;charset=utf-8,%3Csvg fill='$color' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpolygon points='12.5 2.78 11.47 3.82 16.88 9.27 0.38 9.27 0.38 10.73 16.79 10.73 11.38 16.18 12.41 17.22 19.63 9.95 12.5 2.78'/%3E%3C/svg%3E);
+      }
+      &:hover, &:focus {
+        color: $color;
+      }
+    }
+  }
+}
+
+@mixin button-arrow-back {
+  @include button-arrow;
+  flex-direction: row-reverse;
+  &::after {
+    margin: 0 10px 0 0;
+    transform: scaleX(-1);
+  }
+  &:hover, &:focus {
+    &::after {
+      transform: scaleX(-1) translateX(10px);
+    }
+  }
+}
+
+@mixin card {
+  background-color: #fff;
+  color: $text-color;
+  box-shadow: $shadow-1;
+  margin: 0 0 $default-margin;
+  max-width: none;
+  min-width: 0;
+  position: relative;
+  z-index: 0;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  transition: 0.2s;
+  &.image-right {
+    @media (--md-up) {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: stretch;
+      > .card-image {
+        width: 40%;
+        height: auto;
+        flex: none;
+      }
+    }
+  }
+  &.image-left {
+    @media (--md-up) {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      > .card-image {
+        width: 40%;
+        height: auto;
+        flex: none;
+      }
+    }
+  }
+  &.extra-padding {
+    @media (--lg-up) {
+      .card-body {
+        padding: calc($card-padding * 2) calc($card-padding * 2) calc($card-padding * 2 - $default-margin);
+      }
+    }
+  }
+  .card-body {
+    flex: 1 1 auto;
+    padding: $card-padding $card-padding calc($card-padding - $default-margin);
+    > *:first-child {
+      margin-top: 0;
+    }
+    @media (--xs-down) {
+      overflow: auto;
+    }
+  }
+  > .card-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+@mixin small {
+  font-size: 80%;
+}
+
+@mixin label {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: $bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@mixin overlay($color: #000, $opacity: 0.55) { /* 0.55 satisfies WCAG AA w/ white text */
+  position: relative;
+  &::after {
+    background: #000;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $color;
+    opacity: $opacity;
+  }
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@mixin ratio($percent: 100%) {
+  &::before {
+    content: '';
+    display: block;
+    float: left;
+    height: 0;
+    padding-top: $percent;
+  }
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin hr {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 0;
+  margin: 0 0 $default-margin;
+  max-width: none !important;
+  opacity: 0.5;
+  &.has-background {
+    opacity: 1;
+    background: none;
+  }
+}
+
+@mixin admin-sticky-fix($offset: 0) {
+  top: $offset;
+  .admin-bar & {
+    top: calc(46px + $offset);
+    @media (min-width: 783px) {
+      top: calc(32px + $offset);
+    }
+  }
+}
+
+@mixin screenreader {
+  position: absolute;
+  left: -9999em;
+}

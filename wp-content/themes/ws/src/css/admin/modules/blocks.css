@@ -1,0 +1,97 @@
+@import '../../front/modules/blocks.css';
+
+/*
+ * General
+ */
+.row {
+  > .block-list-appender {
+    margin: 0;
+    flex: 0 1 auto;
+    padding: 0 $grid-padding;
+    .block-editor-button-block-appender {
+      margin: 0;
+    }
+  }
+}
+
+.components-placeholder__fieldset .edit-form {
+  display: block;
+  > * {
+    max-width: 400px;
+  }
+}
+
+[class*='wp-block-ws'].has-background {
+  background: none !important;
+}
+
+.block-editor-block-list__block {
+  margin: 0 0 $default-margin;
+  &[class*='wp-block-ws-meta-'] {
+    padding: 10px 20px;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(#000, 0.05) 21px, rgba(#000, 0.05) 40px) !important;
+    fieldset {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+    }
+  }
+}
+
+/*
+ * WordPress Blocks
+ */
+.wp-block-buttons {
+  > .block-list-appender {
+    margin: 0 0 calc($default-margin / 2) calc($default-margin / 2);
+    button {
+      margin: 0;
+    }
+  }
+}
+
+.wp-block-button {
+  .wp-block-button__link {
+    @include button;
+    min-width: 20px;
+  }
+  &.is-style-outline {
+    .wp-block-button__link {
+      @include button-outline;
+    }
+  }
+  &.is-style-underline {
+    min-width: 40px;
+    .wp-block-button__link {
+      @include button-underline;
+    }
+  }
+  &.is-style-arrow {
+    .wp-block-button__link {
+      @include button-arrow;
+      span {
+        display: inline-block;
+        margin-top: -1.5em;
+        &::after {
+          display: inline-block;
+          margin-top: 1.5em;
+        }
+      }
+    }
+  }
+  [data-rich-text-placeholder]::after {
+    color: inherit !important;
+  }
+}
+
+.wp-block-paragraph {
+  &.is-style-label {
+    @include label;
+  }
+}
+
+.wp-block-separator {
+  &:not([class*=has-text-align]) {
+    width: 100% !important;
+    height: 1px !important;
+  }
+}

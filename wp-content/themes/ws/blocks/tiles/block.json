@@ -1,0 +1,17 @@
+{
+  "apiVersion": 2,
+  "name": "ws/tiles",
+  "title": "Tiles",
+  "description": "Flexible grid of tiles.",
+  "category": "ws-layout",
+  "textdomain": "ws",
+  "supports": {
+    "anchor": true
+  },
+  "attributes": {
+    "gutters": {
+      "type": "boolean"
+    }
+  },
+  "style": "front-css-tiles"
+}

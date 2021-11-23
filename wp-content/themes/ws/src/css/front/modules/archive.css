@@ -1,0 +1,222 @@
+/* This stylesheet is for archive views. Archive views are used by several block (Archive, Latest & Upcoming, Select Content, etc) so their styles should not reference blocks themselves. */
+
+/*
+ * Row Classes
+ */
+.default-row, .cards-row, .post-row, .featured-row {
+  margin-bottom: calc(-2 * $grid-padding);
+}
+
+.tiles-row {
+  margin: 0 0 $default-margin;
+  + * {
+    margin-top: $default-margin;
+  }
+}
+
+.list-row {
+  margin-bottom: $default-margin;
+}
+
+/*
+ * Generic Views
+ */
+.archive-view {
+  .post-title[class] {
+    margin-top: 0;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.archive-default {
+  height: calc(100% - $grid-padding * 2);
+  margin: 0 0 calc($grid-padding * 2);
+  .archive-element {
+    border: 1px solid $border-color;
+  }
+  .archive-image {
+    @include ratio(100%);
+  }
+  .archive-body {
+    padding: $default-margin $default-margin 0;
+  }
+}
+
+/*
+ * Post Type Views
+ */
+.archive-post {
+  .archive-element {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+  &:hover {
+    .button-arrow::after {
+      transform: translateX(10px);
+    }
+  }
+}
+
+/*
+ * Variation Views
+ */
+.archive-featured {
+  height: calc(100% - $grid-padding * 2);
+  margin: 0 0 calc($grid-padding * 2);
+}
+
+.archive-card {
+  height: calc(100% - $grid-padding * 2);
+  margin: 0 0 calc($grid-padding * 2);
+}
+
+.archive-list {
+  .archive-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 0;
+    height: auto;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    margin-top: -1px;
+    margin-bottom: 0;
+  }
+  .post-title {
+    flex: 1 1 auto;
+    justify-content: space-between;
+    margin: 0;
+    a {
+      color: $text-color;
+    }
+  }
+}
+
+.archive-tile {
+  .archive-element {
+    @include col;
+    padding: 0;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  @media (--sm-up) {
+    @include col-size(6);
+  }
+  @media (--lg-up) {
+    @include col-size(3);
+  }
+  .tile-content {
+    background: rgba(#000, 0.5);
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*
+ * Side Scroll
+ */
+.side-scroll {
+  :root &[class] {
+    $extend: 300px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @each $breakpoint $breakname in $breaks {
+      @media (--$(breakname)-up) {
+        @for $size from 1 to 12 {
+          .col-$(breakname)-$(size) {
+            min-width: calc(1 / 12 * $size * 100%);
+          }
+        }
+        width: 100vw;
+        margin-left: calc((($(breakpoint) - 100vw) / 2) - $container-padding);
+        margin-right: calc((($(breakpoint) - 100vw) / 2) - $container-padding);
+        padding-left: calc(((100vw - $(breakpoint)) / 2) + ($container-padding - $grid-padding));
+        padding-right: calc(((100vw - $(breakpoint)) / 2) + ($container-padding - $grid-padding));
+        scroll-padding: 0 calc(((100vw - $(breakpoint)) / 2) + ($container-padding - $grid-padding));
+        &::after {
+          min-width: calc(((100vw - $(breakpoint)) / 2) + $container-padding - $grid-padding);
+        }
+        @if $breakname == xs {
+          margin-left: -$container-padding;
+          margin-right: -$container-padding;
+          padding-left: calc($container-padding - $grid-padding);
+          padding-right: calc($container-padding - $grid-padding);
+          scroll-padding: 0 calc($container-padding - $grid-padding);
+          &::after {
+            min-width: calc($container-padding - $grid-padding);
+          }
+        }
+        @if $breakname == xl {
+          margin-left: calc((($container-width - 100vw) / 2) - $container-padding);
+          margin-right: calc((($container-width - 100vw) / 2) - $container-padding);
+          padding-left: calc(((100vw - $container-width) / 2) + ($container-padding - $grid-padding));
+          padding-right: calc(((100vw - $container-width) / 2) + ($container-padding - $grid-padding));
+          scroll-padding: 0 calc(((100vw - $container-width) / 2) + ($container-padding - $grid-padding));
+          &::after {
+            min-width: calc(((100vw - $container-width) / 2) + $container-padding - $grid-padding);
+          }
+        }
+      }
+      @media (min-width: $site-container) {
+        width: $site-container;
+        margin-left: calc((($container-width - $site-container) / 2) - $container-padding);
+        margin-right: calc((($container-width - $site-container) / 2) - $container-padding);
+        padding-left: calc((($site-container - $container-width) / 2) + ($container-padding - $grid-padding));
+        padding-right: calc((($site-container - $container-width) / 2) + ($container-padding - $grid-padding));
+        scroll-padding: 0 calc((($site-container - $container-width) / 2) + ($container-padding - $grid-padding));
+        &::after {
+          min-width: calc((($site-container - $container-width) / 2) + $container-padding - $grid-padding);
+        }
+      }
+    }
+    &::after {
+      content: '';
+      display: block;
+    }
+    > * {
+      min-width: 100%;
+      scroll-snap-align: end;
+    }
+  }
+}
+
+.side-scroll-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: $default-margin;
+  position: relative;
+  button {
+    background: transparent;
+    padding: 5px;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  .prev-button {
+    margin-right: 10px;
+  }
+  &.no-controls {
+    display: none;
+  }
+}

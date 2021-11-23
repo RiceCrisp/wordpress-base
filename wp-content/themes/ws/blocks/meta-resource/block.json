@@ -1,0 +1,35 @@
+{
+  "apiVersion": 2,
+  "name": "ws/meta-resource",
+  "title": "Resource Meta",
+  "description": "Resource template data. Only the data is used, so this block's position does not matter.",
+  "icon": "analytics",
+  "category": "ws-meta",
+  "textdomain": "ws",
+  "supports": {
+    "multiple": false,
+    "customClassName": false
+  },
+  "attributes": {
+    "gated": {
+      "type": "boolean",
+      "source": "meta",
+      "meta": "_resource_gated"
+    },
+    "formHeading": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_resource_form_heading"
+    },
+    "form": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_resource_form"
+    },
+    "completionMessage": {
+      "type": "string",
+      "source": "meta",
+      "meta": "_resource_form_completion_message"
+    }
+  }
+}

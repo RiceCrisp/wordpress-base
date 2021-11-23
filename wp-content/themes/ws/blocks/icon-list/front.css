@@ -1,0 +1,21 @@
+@import '../../src/css/variables.css';
+
+.wp-block-ws-icon-list {
+  list-style: none;
+  &[class] {
+    padding: 0;
+    margin-bottom: calc($default-margin - 15px);
+    li {
+      display: inline-flex;
+      width: 100%;
+      align-items: flex-start;
+      margin: 0 0 15px;
+    }
+  }
+  .icon-svg {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    margin: 4px 20px 0 0;
+  }
+}
