@@ -1,3 +1,5 @@
+/* Forces number inputs with mins/maxs to actually enforce those mins/maxs (mostly keyboard). */
+
 function init() {
   document.querySelectorAll('input[type=number]').forEach(el => {
     if (el.hasAttribute('min') || el.hasAttribute('max')) {

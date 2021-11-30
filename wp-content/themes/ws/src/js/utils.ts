@@ -1,3 +1,5 @@
+/* Utility/helper functions used by the theme. */
+
 import theme from '@ws/theme'
 import {
   Color,

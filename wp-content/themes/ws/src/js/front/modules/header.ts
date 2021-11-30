@@ -1,3 +1,5 @@
+/* All logic related to the site header/navigation. Mostly accessibility. */
+
 import { keyCodes, releaseFocus, trapFocus } from '@ws/utils'
 
 function init() {

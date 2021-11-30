@@ -1,3 +1,5 @@
+/* Logic for accessible lightboxes. */
+
 import {
   checkParents,
   getTransitionEvent,

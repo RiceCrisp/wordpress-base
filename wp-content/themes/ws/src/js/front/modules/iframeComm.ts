@@ -1,3 +1,5 @@
+/* Allows communication between an iframe (usually Pardot) and the theme for responsiveness. */
+
 function init() {
   function receiveMessage(e: MessageEvent) {
     if (e.data.height && (e.data.name || e.data.url)) {

@@ -1,3 +1,5 @@
+/* Custom lazy load logic for images, videos, and iframes. Images should rely on "loading" attribute instead though. */
+
 import { isTag, onScreen } from '@ws/utils'
 
 function init() {

@@ -13,7 +13,7 @@ $heading-font: $font;
 $normal: 400;
 $light: 300;
 $bold: 700;
-$default-margin: 30px;
+$default-margin: 30px; /* All blocks should have this margin at the bottom and then the section removes it with negative margin */
 $input-padding: 10px;
 $input-margin: $default-margin;
 $section-padding: 15vh;

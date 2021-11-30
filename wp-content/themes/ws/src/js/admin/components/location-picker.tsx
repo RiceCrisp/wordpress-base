@@ -72,7 +72,7 @@ export function LocationPicker(props: ComponentProps) {
   }, [view, styles])
 
   function updateMap(map: any, geocoder: any, marker: any) {
-    const locationString = `${location.name || ''} ${location.street || ''} ${location.city || ''} ${location.state || ''} ${location.zip || ''}`
+    const locationString = `${location?.name || ''} ${location?.street || ''} ${location?.city || ''} ${location?.state || ''} ${location?.zip || ''}`
     if (!locationString) {
       setStatusText(__('Location Not Found', 'ws'))
     }
@@ -131,27 +131,27 @@ export function LocationPicker(props: ComponentProps) {
             <TextControl
               placeholder={ __('Name (Optional)', 'ws') }
               onChange={ (newValue: string) => onChange({ ...location, name: newValue }) }
-              value={ location.name }
+              value={ location?.name }
             />
             <TextControl
               placeholder={ __('Street', 'ws') }
               onChange={ (newValue: string) => onChange({ ...location, street: newValue }) }
-              value={ location.street }
+              value={ location?.street }
             />
             <TextControl
               placeholder={ __('City', 'ws') }
               onChange={ (newValue: string) => onChange({ ...location, city: newValue }) }
-              value={ location.city }
+              value={ location?.city }
             />
             <TextControl
               placeholder={ __('State', 'ws') }
               onChange={ (newValue: string) => onChange({ ...location, state: newValue }) }
-              value={ location.state }
+              value={ location?.state }
             />
             <TextControl
               placeholder={ __('Zip Code', 'ws') }
               onChange={ (newValue: string) => onChange({ ...location, zip: newValue }) }
-              value={ location.zip }
+              value={ location?.zip }
             />
             { location && (
               <Button

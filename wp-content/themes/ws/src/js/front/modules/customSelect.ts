@@ -1,3 +1,5 @@
+/* Converts select elements into custom dropdowns so that they can be styled (warning: reduces accessibility). */
+
 import { checkParents, keyCodes, uniqid } from '@ws/utils'
 
 function init() {

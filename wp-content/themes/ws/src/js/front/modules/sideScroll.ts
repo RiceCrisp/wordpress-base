@@ -1,3 +1,5 @@
+/* Logic for side scroll sections (Netflix-like carousel). */
+
 function init() {
   document.querySelectorAll<HTMLElement>('.side-scroll').forEach(container => {
     createControls(container)

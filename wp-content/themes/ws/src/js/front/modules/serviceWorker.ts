@@ -1,4 +1,4 @@
-// Service worker logic for PWA's
+/* Service worker logic for PWA's. Currently not used. */
 function init() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')

@@ -92,3 +92,35 @@ If the client requires the theme repository be GitHub, you can use these steps t
     3. `git remote add origin git@github.com:REPO_NAME.git`
     4. `git push -u origin master`
 6. Run the Action in GitHub to deploy to WP Engine (may have to wait a couple minutes for WP Engine to add SSH key)
+
+### Creating New Blocks
+For all of these steps, I would recommend either duplicating an existing block or at least referencing one when creating a new block.
+1. Create a folder in the blocks directory.
+2. Create a block.json file with appropriate fields.
+3. Create an admin.tsx file with how the block should render in the editor.
+4. Create a render.php file with how the block should render on the frontend.
+5. Create a front.css and/or admin.css for styles. Ideally, the editor and frontend blocks should have the same structure, so we load front.css on both sides. However, if additional styles are needed for the editor, they can be included in the admin.css file. The admin.css file is optional.
+6. If the block requires javascript functionality on the frontend, you can include a front.ts file. Both the front.ts and front.css file will only be loaded if the block is present on the page.
+7. Add the export to /ws/blocks/index.ts
+8. If your dev npm script is already running, you may need to restart it.
+
+### Modifying Core Blocks
+- To add styles to existing blocks, add a folder to the blocks directory with the name of the block, and then add a front.css file to that folder. Some are already included in the theme.
+- To remove a core block, add it to the list in the theme.json file.
+
+### Folder Structure
+- assets: Static images and fonts used by the theme
+- blocks: Theme's block library
+- inc: PHP files that don't fit anywhere else
+- languages: Multilingual files (not used)
+- parts: Single views, archive views, and password protected page layout
+- post-types: Register post types and any logic related to them
+- src: All source JavaScript and CSS files
+  - src/js/admin/components: Theme React component library
+  - src/js/admin/filters: Filters for modifying core functionality
+  - src/js/admin/formats: Inline text formats
+  - src/js/admin/hooks: Custom React hooks
+  - src/js/admin/options: JSX for option pages
+  - src/js/admin/plugins: Modify core functionality sections (sidebar)
+  - src/js/admin/stores: Custom Redux stores
+  - src/js/admin/styles: Register and unregister core block styles

@@ -1,3 +1,5 @@
+/* Custom TypeScript types used by the theme. */
+
 export type Color = {
   name: string,
   slug: string,

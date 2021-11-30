@@ -1,3 +1,5 @@
+/* Allows for animating in elements as they appear on the screen as well as svg animation. */
+
 import { checkParents, onScreen } from '@ws/utils'
 
 function init() {

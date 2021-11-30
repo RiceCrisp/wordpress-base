@@ -1,3 +1,5 @@
+/* Adds parallax effect to background images, but can also be used to change any css value based on screen position. */
+
 import { scaleValue } from '@ws/utils'
 
 function init() {
