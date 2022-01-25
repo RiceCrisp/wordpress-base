@@ -44,7 +44,7 @@ export function SVGPicker(props: ComponentProps) {
   }
 
   const [icon, setIcon] = useState<string>(value)
-  const [icons, setIcons] = useState([])
+  const [icons, setIcons] = useState<boolean | []>([])
 
   return (
     <Dropdown
@@ -73,7 +73,7 @@ export function SVGPicker(props: ComponentProps) {
         if (isOpen && !icons) {
           apiFetch({ path: '/ws/svgs/' })
             .then((res: any) => {
-              setIcons(res)
+              setIcons(res || [])
             })
             .catch((err: string) => {
               setIcons([])
@@ -102,7 +102,7 @@ export function SVGPicker(props: ComponentProps) {
                 <text x="3" y="21" style={ { font: '10px sans-serif' } }>Icon</text>
               </svg>
             </Button>
-            { icons.map((i: SVG) => {
+            { Array.isArray(icons) && icons.map((i: SVG) => {
               return (
                 <Button
                   key={ i.id }
