@@ -227,14 +227,14 @@ function _ws_api_endpoint_svgs() {
     'methods' => 'GET',
     'permission_callback' => '__return_true',
     'callback' => function($data) {
-      return rest_ensure_response(get_option('svg'));
+      return rest_ensure_response(get_option('svgs'));
     }
   ]);
   register_rest_route('ws', '/svgs/(?P<svgId>[a-zA-Z0-9-]+)', [
     'methods' => 'GET',
     'permission_callback' => '__return_true',
     'callback' => function($data) {
-      $svgs = get_option('svg');
+      $svgs = get_option('svgs');
       $key = array_search($data['svgId'], array_column($svgs, 'id'));
       return rest_ensure_response($key !== false ? $svgs[$key] : null);
     }
